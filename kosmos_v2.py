@@ -54,12 +54,8 @@ BROJEVA_U_KOMBINACIJI = 7
 OSNOVNA_STOPA = BROJEVA_U_KOMBINACIJI / BROJ_KUGLICA
 SLUCAJNO_OCEKIVANJE = BROJEVA_U_KOMBINACIJI**2 / BROJ_KUGLICA
 
-LOTO_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_2962.csv"
-)
-
-LOTO_PLUS_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_plus_1718.csv"
+CSV_PUTANJA = Path(
+    "/Users/4c/Desktop/GHQ/data/loto7_4680_k71.csv"
 )
 
 MINIMUM_ISTORIJE = 300
@@ -991,17 +987,16 @@ def monte_karlo_test(
 # GLAVNA OBRADA
 # =============================================================================
 
-def obradi(
-    naziv: str,
-    csv_putanja: Path,
-    seed_pomeraj: int,
-) -> dict:
-    izvlacenja, matrica = ucitaj_csv(csv_putanja)
+def obradi() -> dict:
+    izvlacenja, matrica = ucitaj_csv(
+        CSV_PUTANJA
+    )
+
     n = len(matrica)
 
-    naslov(f"OBRADA: {naziv}")
+    naslov("OBRADA ZAJEDNIČKOG CSV FAJLA")
 
-    print(f"CSV: {csv_putanja}")
+    print(f"CSV: {CSV_PUTANJA}")
     print(f"Broj redova: {n}")
     print("Prvi red se tretira kao najstariji.")
     print("Poslednji red se tretira kao najnoviji.")
@@ -1014,11 +1009,13 @@ def obradi(
 
     if n < potrebno:
         raise RuntimeError(
-            f"{naziv}: potrebno je najmanje {potrebno} redova, "
+            f"Potrebno je najmanje {potrebno} redova, "
             f"a pronađeno je {n}."
         )
 
-    holdout_pocetak = n - BROJ_HOLDOUT_KORAKA
+    holdout_pocetak = (
+        n - BROJ_HOLDOUT_KORAKA
+    )
 
     validacija_pocetak = (
         holdout_pocetak
@@ -1056,9 +1053,7 @@ def obradi(
         tezine,
     )
 
-    rng = np.random.default_rng(
-        SEED + seed_pomeraj
-    )
+    rng = np.random.default_rng(SEED)
 
     bootstrap_donja, bootstrap_gornja = blok_bootstrap(
         holdout["pogodci"],
@@ -1091,8 +1086,6 @@ def obradi(
     )
 
     return {
-        "naziv": naziv,
-        "csv_putanja": csv_putanja,
         "broj_redova": n,
         "next": next_kombinacija,
         "tezine": tezine,
@@ -1264,66 +1257,8 @@ def main() -> None:
         f"{math.comb(BROJ_KUGLICA, BROJEVA_U_KOMBINACIJI):,}"
     )
 
-    loto = obradi(
-        naziv="Loto",
-        csv_putanja=LOTO_CSV,
-        seed_pomeraj=0,
-    )
-
-    loto_plus = obradi(
-        naziv="Loto Plus",
-        csv_putanja=LOTO_PLUS_CSV,
-        seed_pomeraj=1,
-    )
-
-    naslov("KONAČNE NEXT PREDIKCIJE", znak="#")
-
-    print(
-        f"Loto:      "
-        f"{formatiraj_kombinaciju(loto['next'])}"
-    )
-    print(
-        f"Loto Plus: "
-        f"{formatiraj_kombinaciju(loto_plus['next'])}"
-    )
-
-    ispisi_rezultat(loto)
-    ispisi_rezultat(loto_plus)
-
-    naslov("ZAVRŠNI ZAKLJUČAK", znak="#")
-
-    print("Loto:")
-
-    if loto["statisticki_pouzdan"]:
-        print(
-            "  Istorijski podaci pokazali su statistički pouzdanu "
-            "prediktivnu informaciju na zamrznutom holdoutu."
-        )
-    else:
-        print(
-            "  Istorijski podaci nisu pokazali statistički pouzdanu "
-            "prediktivnu prednost iznad 49/39."
-        )
-
-    print()
-    print("Loto Plus:")
-
-    if loto_plus["statisticki_pouzdan"]:
-        print(
-            "  Istorijski podaci pokazali su statistički pouzdanu "
-            "prediktivnu informaciju na zamrznutom holdoutu."
-        )
-    else:
-        print(
-            "  Istorijski podaci nisu pokazali statistički pouzdanu "
-            "prediktivnu prednost iznad 49/39."
-        )
-
-    print()
-    print(
-        "NEXT kombinacije predstavljaju rezultate modela, "
-        "a ne dokaz da se buduća izvlačenja mogu pouzdano predvideti."
-    )
+    rezultat = obradi()
+    ispisi_rezultat(rezultat)
 
 
 if __name__ == "__main__":
