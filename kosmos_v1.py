@@ -62,11 +62,11 @@ OSNOVNA_STOPA = BROJEVA_U_KOMBINACIJI / BROJ_KUGLICA
 SLUCAJNO_OCEKIVANJE = BROJEVA_U_KOMBINACIJI**2 / BROJ_KUGLICA
 
 LOTO_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_2962.csv"
+    "/data/loto7_4680_k71_loto_2962.csv"
 )
 
 LOTO_PLUS_CSV = Path(
-    "/Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_plus_1718.csv"
+    "/data/loto7_4680_k71_loto_plus_1718.csv"
 )
 
 MINIMUM_ISTORIJE = 300
@@ -1622,7 +1622,7 @@ Ukupno mogućih kombinacija: 15,380,937
 ==============================================================================
 OBRADA: Loto
 ==============================================================================
-CSV: /Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_2962.csv
+CSV: /data/loto7_4680_k71_loto_2962.csv
 Broj redova: 2962
 Prvi red se tretira kao najstariji.
 Poslednji red se tretira kao najnoviji.
@@ -1664,7 +1664,7 @@ Zamrznuta holdout provera...
 ==============================================================================
 OBRADA: Loto Plus
 ==============================================================================
-CSV: /Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_plus_1718.csv
+CSV: /data/loto7_4680_k71_loto_plus_1718.csv
 Broj redova: 1718
 Prvi red se tretira kao najstariji.
 Poslednji red se tretira kao najnoviji.
@@ -1706,14 +1706,14 @@ Zamrznuta holdout provera...
 ##############################################################################
 KONAČNE NEXT PREDIKCIJE
 ##############################################################################
-Loto:      05, 10, 12, 16, 22, 28, 38
-Loto Plus: 01, 02, 08, 25, 29, 31, 35
+Loto:      05, x, 12, y, 22, z, 38
+Loto Plus: 01, x, 08, y, 29, z, 35
 
 ##############################################################################
 Loto
 ##############################################################################
-NEXT: 05, 10, 12, 16, 22, 28, 38
-CSV: /Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_2962.csv
+NEXT: 05, x, 12, y, 22, z, 38
+CSV: /data/loto7_4680_k71_loto_2962.csv
 CSV redova: 2962
 
 Težine modela:
@@ -1725,13 +1725,13 @@ Težine modela:
   Bajesov model                    17.91%
 
 Sedam najbolje ocenjenih brojeva:
-  1. broj 28 — ensemble 0.343297 — Bajes 0.188608 — širina 95% intervala 0.074513
-  2. broj 10 — ensemble 0.325411 — Bajes 0.192022 — širina 95% intervala 0.075027
+  1. broj z  — ensemble 0.343297 — Bajes 0.188608 — širina 95% intervala 0.074513
+  2. broj x  — ensemble 0.325411 — Bajes 0.192022 — širina 95% intervala 0.075027
   3. broj 22 — ensemble 0.300341 — Bajes 0.195221 — širina 95% intervala 0.075501
   4. broj 38 — ensemble 0.256949 — Bajes 0.188134 — širina 95% intervala 0.074441
   5. broj 05 — ensemble 0.251065 — Bajes 0.183259 — širina 95% intervala 0.073688
   6. broj 12 — ensemble 0.243146 — Bajes 0.180496 — širina 95% intervala 0.073253
-  7. broj 16 — ensemble 0.234519 — Bajes 0.190287 — širina 95% intervala 0.074767
+  7. broj y  — ensemble 0.234519 — Bajes 0.190287 — širina 95% intervala 0.074767
 
 Zamrznuta holdout provera:
   Broj koraka:                    160
@@ -1756,8 +1756,8 @@ GLAVNI ODGOVOR:
 ##############################################################################
 Loto Plus
 ##############################################################################
-NEXT: 01, 02, 08, 25, 29, 31, 35
-CSV: /Users/4c/Desktop/GHQ/data/loto7_4680_k71_loto_plus_1718.csv
+NEXT: 01, x, 08, y, 29, z, 35
+CSV: /data/loto7_4680_k71_loto_plus_1718.csv
 CSV redova: 1718
 
 Težine modela:
@@ -1769,11 +1769,11 @@ Težine modela:
   Bajesov model                    21.33%
 
 Sedam najbolje ocenjenih brojeva:
-  1. broj 31 — ensemble 0.310007 — Bajes 0.197033 — širina 95% intervala 0.075766
-  2. broj 25 — ensemble 0.301437 — Bajes 0.192986 — širina 95% intervala 0.075171
+  1. broj z  — ensemble 0.310007 — Bajes 0.197033 — širina 95% intervala 0.075766
+  2. broj y  — ensemble 0.301437 — Bajes 0.192986 — širina 95% intervala 0.075171
   3. broj 01 — ensemble 0.283301 — Bajes 0.181460 — širina 95% intervala 0.073405
   4. broj 08 — ensemble 0.281565 — Bajes 0.197087 — širina 95% intervala 0.075774
-  5. broj 02 — ensemble 0.272893 — Bajes 0.185087 — širina 95% intervala 0.073973
+  5. broj x  — ensemble 0.272893 — Bajes 0.185087 — širina 95% intervala 0.073973
   6. broj 29 — ensemble 0.272074 — Bajes 0.185395 — širina 95% intervala 0.074020
   7. broj 35 — ensemble 0.264801 — Bajes 0.174424 — širina 95% intervala 0.072274
 
