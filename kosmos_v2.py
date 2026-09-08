@@ -55,7 +55,7 @@ OSNOVNA_STOPA = BROJEVA_U_KOMBINACIJI / BROJ_KUGLICA
 SLUCAJNO_OCEKIVANJE = BROJEVA_U_KOMBINACIJI**2 / BROJ_KUGLICA
 
 CSV_PUTANJA = Path(
-    "/Users/4c/Desktop/GHQ/data/loto7_4680_k71.csv"
+    "/data/loto7_4680_k71.csv"
 )
 
 MINIMUM_ISTORIJE = 300
@@ -1278,7 +1278,7 @@ Ukupno mogućih kombinacija: 15,380,937
 ==============================================================================
 OBRADA ZAJEDNIČKOG CSV FAJLA
 ==============================================================================
-CSV: /Users/4c/Desktop/GHQ/data/loto7_4680_k71.csv
+CSV: /data/loto7_4680_k71.csv
 Broj redova: 4680
 Prvi red se tretira kao najstariji.
 Poslednji red se tretira kao najnoviji.
@@ -1320,7 +1320,7 @@ Zamrznuta holdout provera...
 ##############################################################################
 KONAČNA NEXT PREDIKCIJA
 ##############################################################################
-NEXT: 08, 10, 21, 22, 29, 31, 36
+NEXT: 08, x, 21, y, 29, z, 36
 CSV redova: 4680
 
 Težine modela:
@@ -1334,9 +1334,9 @@ Težine modela:
 Sedam najbolje ocenjenih brojeva:
   1. broj 08 — ensemble 0.337364 — Bajes 0.193629 — širina 95% intervala 0.075266
   2. broj 36 — ensemble 0.276748 — Bajes 0.173221 — širina 95% intervala 0.072076
-  3. broj 22 — ensemble 0.274287 — Bajes 0.182792 — širina 95% intervala 0.073615
-  4. broj 31 — ensemble 0.268903 — Bajes 0.189603 — širina 95% intervala 0.074664
-  5. broj 10 — ensemble 0.264368 — Bajes 0.189051 — širina 95% intervala 0.074580
+  3. broj y  — ensemble 0.274287 — Bajes 0.182792 — širina 95% intervala 0.073615
+  4. broj z  — ensemble 0.268903 — Bajes 0.189603 — širina 95% intervala 0.074664
+  5. broj x  — ensemble 0.264368 — Bajes 0.189051 — širina 95% intervala 0.074580
   6. broj 21 — ensemble 0.262749 — Bajes 0.173261 — širina 95% intervala 0.072083
   7. broj 29 — ensemble 0.255784 — Bajes 0.185305 — širina 95% intervala 0.074006
 
